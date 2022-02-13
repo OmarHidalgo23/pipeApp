@@ -1,0 +1,69 @@
+<div>
+    <h1>Pipes personalizados</h1>
+    <p> Pipes creados por {{'nosotros' | mayusculas:activar}} </p>
+</div>
+
+<p-toolbar>
+    <div class="p-toolbar-group-left">
+
+    </div>
+    <div class="p-toolbar-group-right">
+        <button pButton (click)="Cambiar()" class="m-1"> {{textoBoton}}</button>
+        <button pButton (click)="CambiarOrdenamiento('nombre')" icon="pi pi-sort" label="Por nombre" class="m-1 p-button-danger"></button>
+        <button pButton (click)="CambiarOrdenamiento('vuela')" icon="pi pi-sort" label="Por vuela" class="m-1 p-button-success"></button>
+        <button pButton (click)="CambiarOrdenamiento('color')" icon="pi pi-sort" label="Por Color" class="m-1 p-button-warning"></button>
+    </div>
+</p-toolbar>
+
+<div class="p-grid">
+    <div class="p-col m-3">
+        <p-table [value]="heroes | ordenar:tipoOrdenamiento" responsiveLayout="scroll">
+            <ng-template pTemplate="header">
+                <tr>
+                    <th>
+                        Nombre</th>
+                    <th>
+                        Vuela</th>
+                    <th>
+                        Color</th>
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-heroe>
+                <tr>
+                    <td>{{heroe.nombre | mayusculas:activar}}</td>
+                    <td><i class="pi" [ngClass]="{
+                        'pi-check': heroe.vuela == true,
+                        'pi-times' : heroe.vuela == false
+                    }"></i></td>
+                    <td>{{heroe.color}}</td>
+                </tr>
+            </ng-template>
+        </p-table>
+    </div>
+</div>
+<div class="p-grid">
+    <div class="p-col m-3">
+        <p-table [value]="heroes | slice:0" responsiveLayout="scroll">
+            <ng-template pTemplate="header">
+                <tr>
+                    <th pSortableColumn="nombre">
+                        <p-sortIcon field="code"></p-sortIcon>Nombre</th>
+                    <th pSortableColumn="vuela">
+                        <p-sortIcon field="code"></p-sortIcon>Vuela</th>
+                    <th pSortableColumn="color">
+                        <p-sortIcon field="code"></p-sortIcon>Color</th>
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-heroe>
+                <tr>
+                    <td>{{heroe.nombre | mayusculas:activar}}</td>
+                    <td><i class="pi" [ngClass]="{
+                        'pi-check': heroe.vuela == true,
+                        'pi-times' : heroe.vuela == false
+                    }"></i></td>
+                    <td>{{heroe.color}}</td>
+                </tr>
+            </ng-template>
+        </p-table>
+    </div>
+</div>

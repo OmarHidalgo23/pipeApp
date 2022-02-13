@@ -1,0 +1,56 @@
+<div>
+    <h1>Pipes no comunes</h1>
+    <p>
+        Pipes incluídos en Angular, usualmente en el CommonModule
+    </p>
+</div>
+
+<div class="grid">
+    <div class="col col-sm-9 col-md-6">
+        <p-fieldset legend="i18nSelect Pipe" [toggleable]="true">
+            <p>Saludos {{nombre}}, es un placer {{genero | i18nSelect:inviteMap }} a nuestro evento.</p>
+            <button pButton type="button" label="Cambiar persona" icon="pi pi-sort-alt" class="p-button-raised p-button-rounded p-button-warning" (click)="cambiarNombre()"></button>
+        </p-fieldset>
+    </div>
+    <div class="col col-sm-9 col-md-6">
+        <p-fieldset legend="i18nPlural Pipe" [toggleable]="true">
+            <p> {{clientes.length | i18nPlural:clientesMap}}.</p>
+            <button pButton type="button" label="Borrar cliente" icon="pi pi-trash" class="p-button-raised p-button-rounded p-button-success" (click)="borrarCliente()"></button>
+        </p-fieldset>
+    </div>
+</div>
+<div class="grid">
+    <div class="col col-sm-9 col-md-6">
+        <p-fieldset legend="Slice Pipe" [toggleable]="true">
+            <b>Original: </b>
+            <pre>{{clientes}}</pre>
+
+            <b>Slice:0:2</b>
+            <pre>{{clientes | slice:0:2}}</pre>
+
+            <b>Slice:1:2</b>
+            <pre>{{clientes | slice:1:2}}</pre>
+        </p-fieldset>
+    </div>
+    <div class="col col-sm-9 col-md-6">
+        <p-fieldset legend="KeyValue Pipe" [toggleable]="true">
+            <ul>
+                <li *ngFor="let p of persona | keyvalue"><b>{{p.key | titlecase}} </b>: {{p.value}}</li>
+            </ul>
+
+        </p-fieldset>
+    </div>
+    <div class="col col-sm-9 col-md-6">
+        <p-fieldset legend="JSON Pipe" [toggleable]="true">
+            <pre>{{persona | json}}</pre>
+        </p-fieldset>
+    </div>
+    <div class="col col-sm-9 col-md-6">
+        <p-fieldset legend="Async Pipe" [toggleable]="true">
+            <b *ngIf="!(miObservable| async)">Resolviendo observable <p-progressSpinner [style]="{width: '20px', height: '20px'}"  styleClass="custom-spinner" strokeWidth="8"></p-progressSpinner></b>
+            <pre>{{miObservable | async}}</pre>
+            <b *ngIf="!(valorPromesa | async)">Resolviendo promesa <p-progressSpinner [style]="{width: '20px', height: '20px'}"  styleClass="custom-spinner" strokeWidth="8"></p-progressSpinner></b>
+            <pre>{{valorPromesa | async}}</pre>
+        </p-fieldset>
+    </div>
+</div>

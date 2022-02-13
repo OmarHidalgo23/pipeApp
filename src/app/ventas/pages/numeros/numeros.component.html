@@ -1,0 +1,41 @@
+<div>
+    <h1>DecimalPipe y PercentPipe</h1>
+    <p>
+        Pipes incluídos en Angular, usualmente en el CommonModule
+    </p>
+</div>
+
+<div class="grid">
+    <div class="col-3">
+        <p-card header="DecimalPipe" subheader="Ventas netas | number">
+            {{ventasNetas}} <i class="pi pi-angle-right"></i> {{ventasNetas | number}}
+        </p-card>
+    </div>
+    <div class="col-3">
+        <p-card header="DecimalPipe con parámetros" subheader="Ventas netas | number:'1.1-5'">
+            {{ventasNetas}} <i class="pi pi-angle-right"></i> {{ventasNetas | number:'1.1-5'}}
+        </p-card>
+    </div>
+    <div class="col-3">
+        <p-card header="CurrencyPipe" subheader="Ventas netas | currency">
+            {{ventasNetas}} <i class="pi pi-angle-right"></i> {{ventasNetas | currency}}
+        </p-card>
+    </div>
+    <div class="col-3">
+        <p-card header="CurrencyPipe con parámetros" subheader="Ventas netas | currency:'PEN':'symbol-narrow' : '1.0-4'">
+            {{ventasNetas}} <i class="pi pi-angle-right"></i> {{ventasNetas | currency:'PEN':'symbol-narrow': '1.0-4'}}
+        </p-card>
+    </div>
+</div>
+<div class="grid">
+    <div class="col-3">
+        <p-card header="PercentPipe" subheader="porcentaje | percent">
+            {{porcentaje}} <i class="pi pi-angle-right"></i> {{porcentaje | percent}}
+        </p-card>
+    </div>
+    <div class="col-3">
+        <p-card header="PercentPipe con parámetros" subheader="porcentaje | percent:'1.2-2'">
+            {{porcentaje}} <i class="pi pi-angle-right"></i> {{porcentaje | percent:'1.2-2'}}
+        </p-card>
+    </div>
+</div>
